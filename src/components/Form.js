@@ -6,55 +6,82 @@ class Form extends react.Component {
   constructor() {
     super();
     this.state = {
+      showHide: false,
       enteredTitle: "",
       enteredAmount: "",
       enteredDate: "",
-      showHide: false,
     };
   }
-showHideHandler = () => {
-    this.setState({showHide:!this.state.showHide})
-}
-  titleChangeHandler = (event) => {
-    this.setState({ enterdTitle: event.target.value });
+  showHideHandler = () => {
+    this.setState({ showHide: !this.state.showHide });
   };
+  titleChangeHandler = (event) => {
+    this.setState({ enteredTitle: event.target.value });
+  };
+  amoumtChangeHandler = (event) => {
+    this.setState({ enteredAmount: event.target.value });
+  };
+  dateChangeHandler = (event) => {
+    this.setState({ enteredDate: event.target.value });
+  };
+  submitHandler = (event) => {
+    event.preventDefault();
+    const expenseData = {
+      title: this.state.enteredTitle,
+      amount: this.state.enteredAmount,
+      date: new Date(this.state.enteredDate),
+    };
+    console.log(expenseData);
+  };
+
   render() {
     return (
-      <div className="main">
+      <div >
         <div>
           <h1 className="heading-expense">EXPENSE MANAGER</h1>
         </div>
         <div className="form-main">
-          <form>
-            <div>
-              <button className="input">Add New Expense</button>
-            </div>
-            <label>Expense</label>
-            <input
-              className="text-input  input"
-              type="text"
-              placeholder="Enter Title "
-              value={this.state.enteredTitle}
-              onChange={this.titleChangeHandler}
-            ></input>
-            <label>Amount</label>
-            <input
-              className="amount-input input"
-              placeholder="Add Amount"
-              type="number"
-              min="1"
-              step="1"
-            ></input>
-            <label>Date</label>
-            <input
-              className="date-input input"
-              placeholder="Add Date"
-              type="date"
-            ></input>
-            <div>
-              <button className="input">cancel</button>
-              <button className="input">Add Expense</button>
-            </div>
+          <form onSubmit={this.submitHandler}>
+            {this.state.showHide === false ? (
+              <div>
+                <button className="input" onClick={this.showHideHandler}>
+                  Add New Expense
+                </button>
+              </div>
+            ) : (
+              <div>
+                <label>Expense</label>
+                <input
+                  className="text-input  input"
+                  type="text"
+                  placeholder="Enter Title "
+                  value={this.state.enteredTitle}
+                  onChange={this.titleChangeHandler}
+                ></input>
+                <label>Amount</label>
+                <input
+                  className="amount-input input"
+                  placeholder="Add Amount"
+                  type="number"
+                  min="1"
+                  step="1"
+                ></input>
+                <label>Date</label>
+                <input
+                  className="date-input input"
+                  placeholder="Add Date"
+                  type="date"
+                ></input>
+                <div>
+                  <button className="input" onClick={this.showHideHandler}>
+                    cancel
+                  </button>
+                  <button className="input" onClick={this.expenseData}>
+                    Add Expense
+                  </button>
+                </div>
+              </div>
+            )}
           </form>
         </div>
       </div>
