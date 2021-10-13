@@ -27,7 +27,7 @@ class App extends React.Component {
     },
     {
       id: "e4",
-      title: "New Desk (Wooden)",
+      title: "New Desk ",
       amount: 450,
       date: new Date(2021, 5, 12),
     },
@@ -47,7 +47,7 @@ class App extends React.Component {
       <div className="App">
         <div className="main2" >
         <Form />
-        <Chart />
+        <Chart expense={this.state.expense} />
         <Filter />
         <List expense={this.state.expense} />
         </div>

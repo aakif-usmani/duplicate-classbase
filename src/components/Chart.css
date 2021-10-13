@@ -1,9 +1,8 @@
-.main {
-  width: 95%;
-  background-color: rgb(5, 40, 61);
-  border: 1px solid #f1ccff;
+.chart-main {
+  width: 96%;
+  background-color: rgb(214, 245, 245);
+  border: 1px solid rgb(5, 164, 185);
   margin: 0 auto;
   border-radius: 10px;
-  margin-top: 20px;
   margin-top: 20px;
 }

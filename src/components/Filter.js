@@ -1,5 +1,5 @@
 import react from "react";
-import './Filter.css'
+import "./Filter.css";
 
 class Filter extends react.Component {
   constructor() {
@@ -9,12 +9,22 @@ class Filter extends react.Component {
 
   render() {
     return (
-        <div className="main">
-            <p>fkuygfkuyfgvuyhkfi</p>
-            <select>
-                <option></option>
-            </select>
-        </div>
+      <div className="filter-main">
+        <p className="filter-text">
+          <b>Filter Year </b>
+        </p>
+        <select
+          className="select-filter-year"
+          key={""}
+          onChange={""}
+          value={""}
+        >
+          <option>2020</option>
+          <option>2021</option>
+          <option>2022</option>
+          <option>2023</option>
+        </select>
+      </div>
     );
   }
 }
